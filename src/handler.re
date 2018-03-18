@@ -1,9 +1,11 @@
 type jsobject = {. "message": string};
+type eventobject = {. "body": string};
+
 [@bs.scope "JSON"] [@bs.val] external stringify : jsobject => string = "stringify";
 
-let hello = (_event, _context, callback) => {
+let receiveSms = (event, _context, callback) => {
   let body = {
-    "message" : "Hello from Reason!"
+    "message" : "Hello from Reasosdfsdf!"
   };
 
   let response = {
@@ -11,5 +13,18 @@ let hello = (_event, _context, callback) => {
     "body": stringify(body)
   };
 
+   let xml = {body: "ehllosfds"};
+   Js.log(xml.body);
+   
+  
+      /* console.log(event)
+  
+  
+      console.log("sending message", message)
+  
+      var initState = {
+        "Comment": message
+      } */
+  
   [@bs] callback(Js.Nullable.null, response);
 };

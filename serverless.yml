@@ -18,8 +18,11 @@ functions:
 
   receiveSms:
     handler: handler.receiveSms
-    # events:
-    #   - sns: receive-sms
+    events:
+      - http:
+        path: receive
+        method: post
+        cors: true
 
   send:
     handler: handler.send
